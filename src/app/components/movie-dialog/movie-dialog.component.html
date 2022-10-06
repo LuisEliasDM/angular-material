@@ -1,0 +1,22 @@
+<button mat-icon-button class="dialog-close-icon" (click)="cancelar()">
+    <mat-icon class="material-icons md-light text-light">close</mat-icon>
+</button>
+        <img [src]="'https://image.tmdb.org/t/p/w500' + data.movie.backdrop_path" alt="">
+    <h1 mat-dialog-title>
+        {{data.movie.title}}
+    </h1>
+    <div mat-dialog-content>
+            {{data.movie.overview}}
+    </div>
+    <div mat-dialog-actions>
+        <button mat-icon-button class="example-icon" (click)="addList()">
+            <mat-icon class="material-icons md-light active-list">
+                {{listIcon}}
+            </mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" (click)="addLike()">
+            <span class="material-symbols-outlined" #likeBtn>
+                thumb_up
+            </span>
+        </button>
+    </div>

@@ -1,0 +1,33 @@
+<mat-drawer-container class="example-container dark" [hasBackdrop]="false" autosize>
+  <mat-drawer #drawer class="example-sidenav dark" mode="push">
+    <div class="perfil-picture"></div>
+    <mat-selection-list #shoes [multiple]="false">
+      <mat-list-option [routerLink]="['/uno']" routerLinkActive="active" class="text-light">
+        Uno
+      </mat-list-option>
+      <mat-list-option [routerLink]="['/dos']" routerLinkActive="active" class="text-light">
+        Dos
+      </mat-list-option>
+      <mat-list-option [routerLink]="['/tres']" routerLinkActive="active" class="text-light">
+        Tres
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <mat-toolbar class="dark">
+      <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon class="material-icons md-light text-light">menu</mat-icon>
+      </button>
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt="">
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon class="text-light">search</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon class="text-light">more_horiz</mat-icon>
+      </button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

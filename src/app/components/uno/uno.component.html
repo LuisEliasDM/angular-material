@@ -1,0 +1,10 @@
+<div class="container">
+    <div *ngIf="movies$ | async as response" class="card-div">
+        <mat-grid-list cols="7" rowHeight="1:1.4" gutterSize="10px" >
+            <mat-grid-tile *ngFor="let movie of response.results" (click)="openDialog(movie)">
+                <img class="card-img" [src]="'https://image.tmdb.org/t/p/w500/'+movie.poster_path" alt="Photo of a Shiba Inu">
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>
+
