@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { Endpoints } from '../utils/constants/endpoints.class';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,7 @@ export class MovieApiRequestService {
   constructor(private httpClient: HttpClient) { }
 
   getMovies(): Observable<any>{
-    return this.httpClient.get("https://api.themoviedb.org/3/discover/movie?api_key=84a6dff2a455f96222eb911d3d697405&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate")
-    .pipe(
-    )
+    return this.httpClient.get(Endpoints.GENERAL_URL + Endpoints.TRENDING_URL)
   }
 
   getUserLikes(): number[]{

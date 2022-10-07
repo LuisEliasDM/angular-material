@@ -8,8 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { UnoComponent } from './components/uno/uno.component';
 import { DosComponent } from './components/dos/dos.component';
 import { TresComponent } from './components/tres/tres.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MovieDialogComponent } from './components/movie-dialog/movie-dialog.component';
+import { RequestInterceptor } from './interceptors/request.interceptor';
 
 
 @NgModule({
@@ -25,9 +26,11 @@ import { MovieDialogComponent } from './components/movie-dialog/movie-dialog.com
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,useClass: RequestInterceptor, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
