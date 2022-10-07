@@ -14,6 +14,10 @@ export class MovieApiRequestService {
     return this.httpClient.get(Endpoints.GENERAL_URL + Endpoints.TRENDING_URL)
   }
 
+  getGenres(): Observable<any>{
+    return this.httpClient.get(Endpoints.GENERAL_URL + Endpoints.GENRE_URL)
+  }
+
   getUserLikes(): number[]{
     if(localStorage.getItem("likes") == null) return [];
     return JSON.parse(localStorage.getItem("likes")??"");

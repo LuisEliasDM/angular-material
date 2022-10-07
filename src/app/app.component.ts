@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
 import { MovieDialogComponent } from './components/movie-dialog/movie-dialog.component';
+import { MovieApiRequestService } from './services/movie-api-request.service';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +12,10 @@ import { MovieDialogComponent } from './components/movie-dialog/movie-dialog.com
 export class AppComponent {
   title = 'angular-material';
   showFiller = false;
+  genres$: Observable<any>;
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private movieApiRequest: MovieApiRequestService) {
+    this.genres$ = this.movieApiRequest.getGenres();
   }
 
   openDialog(): void {

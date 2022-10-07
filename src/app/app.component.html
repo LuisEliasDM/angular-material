@@ -2,15 +2,14 @@
   <mat-drawer #drawer class="example-sidenav dark" mode="push">
     <div class="perfil-picture"></div>
     <mat-selection-list #shoes [multiple]="false">
-      <mat-list-option [routerLink]="['/uno']" routerLinkActive="active" class="text-light">
-        Uno
+      <mat-list-option [routerLink]="['uno']" routerLinkActive="active" class="text-light">
+        Home
       </mat-list-option>
-      <mat-list-option [routerLink]="['/dos']" routerLinkActive="active" class="text-light">
-        Dos
-      </mat-list-option>
-      <mat-list-option [routerLink]="['/tres']" routerLinkActive="active" class="text-light">
-        Tres
-      </mat-list-option>
+      <div *ngIf="genres$ | async as response" class="card-div">
+        <mat-list-option *ngFor="let genre of response.genres" [routerLink]="['uno/'+genre.name]" routerLinkActive="active" class="text-light">
+          {{genre.name}}
+        </mat-list-option>
+      </div>
     </mat-selection-list>
   </mat-drawer>
 

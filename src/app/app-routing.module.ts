@@ -10,16 +10,12 @@ const routes: Routes = [
     component: UnoComponent,
   },
   {
-    path: "dos",
-    component: DosComponent,
-  },
-  {
-    path: "tres",
-    component: TresComponent,
+    path: "uno/:id",
+    component: UnoComponent,
   },
   {
     path: "**",
-    redirectTo: "uno",
+    redirectTo: "tres",
   },
 ];
 
