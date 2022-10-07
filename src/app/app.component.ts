@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { MovieDialogComponent } from './components/movie-dialog/movie-dialog.component';
@@ -21,4 +21,5 @@ export class AppComponent {
   openDialog(): void {
     this.dialog.open(MovieDialogComponent);
   }
+
 }

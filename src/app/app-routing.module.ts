@@ -6,11 +6,12 @@ import { UnoComponent } from './components/uno/uno.component';
 
 const routes: Routes = [
   {
-    path: "uno",
-    component: UnoComponent,
+    path: "",
+    redirectTo: "uno/home",
+    pathMatch: "full"
   },
   {
-    path: "uno/:id",
+    path: "uno/:genre",
     component: UnoComponent,
   },
   {
